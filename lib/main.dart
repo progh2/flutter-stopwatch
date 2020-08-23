@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
          onPressed: () => setState((){
            _clickButton();
          }),
-         child: Icon(Icons.play_arrow),
+         child: _isRunning ? Icon(Icons.pause) : Icon(Icons.play_arrow),
        ),
        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
      );
@@ -108,7 +108,8 @@ class MyApp extends StatelessWidget {
   }
 
   void _clickButton() {
-
+    _isRunning = !_isRunning;
+    (_isRunning)? _start() : _pause();
   }
 
   @override
@@ -116,5 +117,10 @@ class MyApp extends StatelessWidget {
     _timer?.cancel();
     super.dispose();
   }
+
+  _start() {}
+
+  _pause() {}
+
 }
 
