@@ -118,9 +118,20 @@ class MyApp extends StatelessWidget {
     super.dispose();
   }
 
-  _start() {}
+  _start() {
+    _timer?.cancel();
+    _timer = Timer.periodic(
+       Duration(milliseconds: 10,),
+       (timer) {
+         setState(() {
+           _time++;
+         });
+       });
+  }
 
-  _pause() {}
+  _pause() {
+     _timer?.cancel();
+  }
 
 }
 
