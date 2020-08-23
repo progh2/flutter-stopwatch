@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
                   width: 100,
                   height: 200,
                   child: ListView(
-                    children: <Widget>[], // TODO : 랩타임 추후 수정
+                    children: _lapTimes.map((time)=>Text(time)).toList(),
                   ),
                 )
               ],
